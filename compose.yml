@@ -1,0 +1,13 @@
+services:
+  bank-server:
+    container_name: bank-server
+    build: ./bank-server
+    expose:
+      - 1099:1099
+  bank-client:
+    container_name: bank-client
+    build: bank-client
+    stdin_open: true
+    tty: true
+    depends_on:
+      - bank-server
